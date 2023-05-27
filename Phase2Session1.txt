@@ -1,0 +1,204 @@
+Phase - 2 
+--------------
+JDBC
+Hibernate
+Servlets
+JSP
+---------------
+Today's Agenda
+--------------
+1. SQL
+2. JDBC Introduction
+--------------
+What is a SQL?
+
+It is an Structured Query Language which is a universal language for databases. 
+
+What is an Database in general?
+It is a collection of raw material  which is organised in structured(Table) format of an entity.
+			or
+It is a collection of inter-related tables of an entity. 
+
+The Entity might be like, School, College, Bank, ......
+
+School Database :- 
+
+Students Info
+	BiodataInfo
+	ClassInfo
+	AttendanceInfo
+	MarksInfo
+	GamesAndSportsInfo
+	FeesInfo
+Employees Info
+	PersonalInfo
+	JobDetails
+	SalaryDetails
+Library Info
+	BooksInfo
+	MembersInfo
+	
+Each one can take it as a table. So that collection inter-related tables of entity is called as database. 
+
+To work on databases, we got several softwares existed like MySQL, SQL Server, Oracle, .....
+
+To create and work with databases, there is a Database System called as DBMS- Database Management System, it has different types
+	RDBMS - Relational DBMS
+	MDBMS - Modern DBMS
+MySQL, SQL Server, Oracle, these softwares comes under RDBMS. In these softwares commonly one lang exists called as SQL.
+
+What is an SQL?
+	It is an Structured Query Language which is a universal language for databases.
+
+It is a Non-Procedural Language, so that it has different types of commands. 
+
+1.  Data Definition Language(DDL) Commands :- these commands are used to define new structures, modify  and delete those structures if required. 
+		CREATE, ALTER, DROP
+
+2.  Data Manipulation Language(DML) Commands :-  these commands are used to create new rows in table modify and delete rows from table. 
+		INSERT, UPDATE, DELETE
+
+3.  Data Retrival Language(DRL) Commands :-  It is only one command which menat for retriving data 			form table(s). 
+		SELECT
+
+4.  Transaction Control Language(TCL) Commands :-  these commands are used to update or cancel dml 							operations.
+		COMMIT, ROLLBACK
+
+5.  Data Control Language(DCL) Commands :-  these commands are used control operations b/w users.
+		GRANT, REVOKE
+
+To Work with SQL, we need have any one of the Database software,  we are using MySQL. 
+--------------------------
+How to create a database ?
+
+	Create Database <db name>;
+
+how to change from one database to another database?
+	
+	Use <db name>;
+
+How to create a table?
+
+	Create Table <table name>(colname  <datatype> [constraint],
+	colname  <datatype> [constraint],....);
+
+Note:-  Tablename and ColumnName must be one word. 
+----------------------
+Data Types :- 
+int 	=>  integer
+float	=>  decimal
+char	=>  string with fixed length
+varchar =>  string with variable length
+date	=>  for date value(Format:  YYYY-MM-DD)
+-----------------------
+Constraint :- 
+It is a rule specified on table column for data consistancy. 
+
+NULL		:-  It is default one, which allows empty values.
+NOT NULL	:-  It will not allows null values.
+UNIQUE		:-  It will not allow duplicate values.
+PRIMARY KEY	:-  It is a combination of Not Null and Unqiue constraint.
+CHECK		:-  It allows to check specific values/range of values.
+DEFAULT		:-  It allows to set default value for column.
+FOREIGN KEY	:-  It allows to create relationship b/w tables.
+
+Table :-  Biodata (rollno, stdname, gender, birthdate, location)
+
+INSERT :-  This command is used to add new rows to the table.
+
+INSERT INTO <TABLENAME>(COL1, COL2, ...)  VALUES(VAL1, VAL2, ...);
+
+Note:- Here date and string values should enclose within the single quotes.
+
+UPDATE :-  This command is used to modify row values/to perform calculations. 
+
+UPDATE  <TABLE NAME>  SET  <COLNAME> = <VALUE/EXPRESSION>  [WHERE CLAUSE];
+
+DELETE :-   This command is used t delete rows from table.
+
+DELETE  FROM <TABLE NAME> [WHERE CLAUSE];
+
+ALTER :-  This command is used to modify structure of the table
+a. Adding new columns.
+b. Modifing existing column data type.
+c. Deleting existing columns. 
+
+ALTER TABLE <TABLE NAME> ADD/MODIFY/DROP <EXPRESSION>
+
+DROP :-  THIS COMMAND IS USED TO DELETE A TABLE.
+
+DROP TABLE <TABLE NAME>;
+--------------------------------------------------
+JDBC :-  The Full form of JDBC is Java Database Connectivity. 
+
+It is a technology / Java API to connect and execute the queries with the database. 
+			or
+It is a technology which meant for interacting with databases.
+
+To work with database from programming language:-
+
+a.   Make A Connection
+b.   Prepare SQL Queries
+c.   Exceute SQL Queries
+d.   Close the connection
+
+API :-  Application Programming Interface, which provides collection of interfaces and classes. 
+
+JDBC Driver :- It is a software component that enables java application to interact with databases. 
+
+there are 4 types
+
+1.  JDBC-ODBC bridge Driver
+2.  Native-API Driver
+3.  Network Protocal Driver
+4.  Thin Layer Driver
+
+From above all drivers, 4th Driver is updated driver which allows to connect any database with minimum steps. 
+
+Steps  to connect with database:- 
+
+1.  As  per  the jdbc,  based on connecting database, we have to download that relavent connector jar file of the database. Jar File :-  Java Archives Files, these are the special library file which consist colletion of classes and interfaces. 
+
+MySQL   =  mysql-connector.jar 
+Oracle  =  Ojdbc6.jar
+
+Once this file downloaded, it has to add to the application. 
+
+RightClick on Application => Build Path => COnfigure Build Path => Libraries => Select ClassPath => Click Add External Jars Button =>  Browser Jar File => Click on Apply and CLose Button.
+
+2. Register Driver 
+	There are different drivers for every diferent database. 
+	For MySQL following String is a Driver
+			"com.mysql.cj.jdbc.Driver"
+	To Register Driver use following code
+			Class.forName("drivername")
+			Class.forName("com.mysql.cj.jdbc.Driver")
+3.  Establish Connection to database
+  		To work with JDBC, import a package java.sql
+			it has following interfaces
+    Connection :-  This interface holds connection information of connected database. 
+    DriverManager :-  This class is used to get connection to database.
+	
+    Connection  <conObj> =  DriverManager.getConnection("connectionString", "username", "pwd");
+
+	ConnectionString :-  it is a string which provides connecting db info like
+				servername, portnumber and db name....
+			for mysql :  "jdbc:mysql://localhost:3306/dbname"
+Connection  conObj = 
+     DriverManager.getConnection("jdbc:mysql://localhost:3306/phase2weekenddb", "root", "root");
+
+4. Prepare and Execute SQL Queries
+	Statement Interface :-  This interface allows to write sql queries and allows to execute it. 
+	Statement <Object>  =  connectionObj.createStatement();
+
+	it has following two methods
+
+	executeUpdate("sql query") :- 
+		 this method allows to execute all the sql queries except SELECT command. 
+	executeQuery("select stmt") :-
+		this method allows to execute only select statement.
+
+5.  Once all the operations is done, close the connection
+		
+		connectionObj.close()
+
