@@ -1,0 +1,72 @@
+Today's Agenda
+---------------
+Hibernate
+---------------
+JDBC Limitations :- 
+----------------------
+
+1.  Jdbc is a Database Dependent, if we change sql software from mysql to others, we need to change 	coding of queries if required. 
+2.  Developer should have SQL Knowledge to develop the application. 
+
+What is an Hibernate?
+It is an Framework is used to communicate with databases.
+It is a ORM Tool(Object Relational Mapping Tool), which makes developer task easier to communicate with any Database. 
+
+ORM Tool is a Tool which allows to develop an  application without using any sql queries. 
+
+SessionFactory is a collection of Session Objects. 
+It includes connection information of the database. 
+
+Session :-  This class is used to communicate with database for  Data Operations. 
+		Data Creation, Manipulating, Accessing 
+
+	save() :-  this method is used to create table and stores object data into table. 
+
+Transaction :-  This class is required to perform DML Operations(Insert/Update/Delete). 
+whenever session object performs any dml operation, to save/cancel that operation  Transaction is used.
+
+To Work with Hibernate fw, we have to download collection related jar files. 
+---------------------------------------
+To Retrive Any Data from db tables using Hibernate, we have to use HQL(Hibernate Query Lang)
+
+SQL :- SELECT * FROM studentinfo;
+
+HQL :-  from Student;  // Student is a Classname
+
+SQL :- Select * from studentinfo where rollno=101;
+
+HQL :-  from Student where rollno=101;
+
+how to pass arguments to the hql query
+
+session.CreateQuery("from Student where rollno=:variable")
+qryObj.setParameter("variable", value)
+
+SQL :-  Delete from studentinfo where rollno=101;
+
+HQL :-  Delete from student where rollno=101;
+
+SQL :-  Update studentinfo set  std_name=value where rollno=101;
+
+HQL :-  Update student set  sname=value where rollno=101;
+ 
+For Update and Delete in HQL, executeUpdate() method is used.
+
+ 
+TypedQuery is the class which any hql query(select/update/delete/....).
+--------------------------
+
+Persistance class can be mapped in two ways
+1. By using XML
+2. By using Annotations
+
+Java Annotation is a tag that represents the metadata i.e. attached with class, interface, methods or fields to indicate some additional information which can be used by java compiler and JVM.
+
+Annotations in Java are used to provide additional information, so it is an alternative option for XML.
+
+Annotations in Hibernate:-
+@Entity  :-  It is used to tell that class should convert into table. 
+@Table(name="tablename") :-   table name in database. 
+@Id  :-  which tells that primary key.
+@GeneratedValue :-  which tells that auto-increment value for a column.
+@Column(name="colname") :-  which tells that column in database. 
