@@ -1,0 +1,40 @@
+Today's Agenda:-
+----------------
+Hibernate Mappings 
+----------------
+
+What is a meant by mapping:-
+	It is the process of relationship b/w classes. 
+
+There are 4 relationships are exist
+
+1.  One to One
+		One Entity mapped with another single entity.
+			Ex:-  An Employee mapped with An Address
+				An Student mapped with a course 
+2.  One to Many 
+		One Entity mapped wtih multiple enttities
+			Ex:-   A Department mapped with multiple employees.
+			       A course mapped with multiple students.
+			       A Question mapped with multiple answers.
+3.  Many to One
+		Many Entities are mapped with One Entity.
+			Ex:-   Multiple Vechiles are mapped with one Owner(Person).
+4.  Many to Many
+		Many Entities  are mapped with Many Entities
+			Ex:-  Multiple Students are mapped with Multiple Courses. 
+Student Process:-
+-----------------
+1. Biodata
+		RollNumber	StudentName	Gender		Address		Location	
+2. Marks
+		Sno	Exam	Sub1	Sub2	Total	  Average      RollNumber
+3. Attendance
+		Sno	Month	WorkedDays	PresentDays	AbsentDays	RollNumber
+-------------------------------------------------------------
+While working with these mappings, there are two types of directions
+1. Uni-Directional
+		One Way
+2. Bi-Directional
+		Two Way
+--------------------------------------------------------------
