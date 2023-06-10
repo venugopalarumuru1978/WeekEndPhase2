@@ -1,0 +1,108 @@
+Today's Agenda
+--------------
+Servlets
+--------------
+What is an Web?
+It is nothing but an internet, where mutliple servers are inter connected to share data/information to the users. 
+
+What is an Internet? 
+Networks of network / Global Network is called an internet. 
+
+What is a WebSite?
+
+Web + Site :	A place/location on the web is called website. On that location we can place an application which is called as Web Application. 
+
+What are the requirements to develop a web application?
+
+1.  Markup Languages
+		HTML, DHTML(CSS), XML, XAML, XHTML, ....
+2.  Script Languages
+		VBScript, JavaScript, jQuery, Angular, ReactJS, VueJS, ....
+3.  Web Technologies
+		Server Side Programming(Servlets, JSP(Java), Asp.Net, Asp.Net MVC(dotnet), 
+				Django(Python))
+
+Java FullStack Developer
+	HTML, CSS, JavaScript,  Servlets, JSP, Angular/React/....
+DotNet FullStack Developer
+	HTML, CSS, JavaScript, ASP.Net MVC, Angular/React/....
+Python FullStack Developer
+	HTML, CSS, JavaScript,  Django, Angular/React/....
+
+
+What is an Servlet?
+
+Servlets is an web technology which meant for developing server side web applications. 
+
+What is a Web Server?
+
+it is an application which takes request from the client and provides responses to the clients.
+
+Request :- the information which are sending to the server from the client
+Response :-  the information which are getting from the server to the client
+
+Apache Tomcat
+Web Logic
+GlassFish
+
+Usually, we will have Apache Tomcat
+Every Server having a name and portnumber
+
+if server is configured in local system, the server name is "Localhost" and default port number is 8080, if required we can change it. 
+
+Port number is a number which meant for identifing an application on  server. 
+
+http://localhost:8081/WebApp1/Page1.html
+
+Servlet is an API which provides collection of interfaces and classes. 
+
+
+Every Request will process based on a protocal, 
+
+http := hypertext transfer protocal is meant for viewing pages /info from the server. 
+https :-  it is as same as http with security.
+
+Once servlet is created, we have to add servlet-api.jar, it is located in tomcat server lib folder. 
+
+Html Pages are used to design the page whereas servlet pages are used to write functionality of the page. 
+---------------------------
+How to execute Servlet with Html Page:- 
+
+1.  Create servlet and code it as per the requirement. 
+2.  Create html page then add <form> tag with "submit" button
+	<form  method="POST/GET"  action="servletname">
+		<input type="submit"  value="Click Me" />
+	</form>
+3.  Run html page then click button to get servlet output. 
+
+As per the html,  there are 3 buttons
+1.  button :-  to execute only script
+2.  reset  :- to reload page
+3.  submit :- to submit the page to the server along with data. 
+
+POST :- this method is used while submitting page to the server.
+GET :-  this method is used while retriving any content from the server.
+-----------------------------------------------
+How to send data from html page to servlet page
+
+1.  Create a servlet
+2.  Create a html page with form tag along with textbox and submit button
+3.  To get  html page input into servlet use following statement
+	Variable = request.getParameter("tool name")
+
+-----------------------------
+How to move from servlet to another servlet/html pages
+		response.sendRedirect("pagename")
+-----------------------------
+
+
+
+
+
+
+	
+
+
+
+
+
