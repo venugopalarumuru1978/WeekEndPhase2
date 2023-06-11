@@ -1,0 +1,103 @@
+Today's Agenda
+--------------
+1. Session Management
+2. Query String / URL ReWriting
+3. Cookies
+4. RequestDispatcher
+--------------
+Session Management :- 
+
+The process of sending a request to the server, the server will allocate a block of memory in server for that client, that memory is called as Session Memory. 
+
+Purpose of the session is, utilizing data b/w servlets. 
+
+HttpSession :-  this class allows to create an Object and stores session memory allocated by the server. 
+
+HttpSession  <object>  = request.getSession();
+setAttribute(key, value) :-  it allows to store value
+getAttribute(key) :- it allows to read value
+----------------------------------------------
+URL Rewriting :- 
+
+the process of sending some textual info(username/date/cityname/...) from one page to another page while redirecting page.
+
+Step-1 :-
+		Create querystring variable with value and assgin that variable to the sendRedirect()
+		method as follows
+			response.sendRedirect("pagename?variable=value&variable=value");
+Step-2 :- 
+		Get querystring variable values as follows in target page
+			request.getParameter("variable");
+-------------------------------------------------
+Cookies :- 
+
+A Cookie is a small piece of information that is persisted between the multiple client requests. 
+
+A cookie has a name  and a value. 
+
+A Cookie is a small amount information which resides on client system either memory/browser. 
+
+Types of Cookies 
+
+1.  In-Memory Cookie/Non-Persistant Cookie
+2.  Persistant Cookie
+
+In-Memory :-  
+It is valid for single session only.  It is removed each time when user closes the browser.
+
+Persistant :-  It is valid for multiple session. It is not removed each time when user close the browser. it is removed  when user clear browser history / Logout/Signout
+
+Cookie :-  This class is used to provide functionality of the cookies. 
+
+Cookie  <object> = new Cookie(cookiname, value)
+
+To add cookie to the browser
+		response.addCookie(cookieObj);
+
+How to read info from cookies
+		Actually Cookies are exist in browser in the form of array. 
+			Cookie  <object>[] =  request.getCookies() :-  to get all cookies
+
+	getName() :-  to get name of cookie
+	getValue() :- to get value of cookie
+
+setMax(int expirytime in seconds) :-  this method will allocate time for the cookie, i.e. how much time it should stay on browser. 
+---------------------------------------------
+Sample App:- 
+
+There are two users(Admin and Customer)
+
+Admin User(username : admin  ,  password :  admin@123)
+	Functionalities 
+			Add New Customer 
+			View All Customer
+			Search Customer
+			Delete Customer
+			Logout
+When Admin logged in successfully, it has show all the added customers
+Customer Login(username :  mailid , password : specified)
+	Functionalities
+			View Customer Personal Info
+			Change Password
+			Logout
+-----------------------------------------
+	
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
